@@ -18,8 +18,6 @@ session_start();
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="OptikServers is a free server hosting.">
-  <meta name="author" content="OptikServers">
   <title><?= $_CONFIG["name"] ?> - Login</title>
   <!-- Favicon -->
   <link rel="icon" href="/assets/img/brand/favicon.png" type="image/png">
