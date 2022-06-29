@@ -165,10 +165,7 @@ if (isset($_POST["vipqueue"])) {
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#diskSpaceModal" style="margin-bottom: 10px; margin-right: 10px;"><img src="https://i.imgur.com/N0MwF0M.png" width="64"><br/><br/>Buy more disk</button>
                     <div class="col-md-12">
             <br><br>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8751501047173409" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8751501047173409" data-ad-slot="5459512561" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            <br><br>
+           
         </div>
                     <p>Account related</p>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#serverSlotsModal" style="margin-bottom: 10px; margin-right: 10px;"><img src="https://i.imgur.com/3w5wt0k.png" width="64"><br/><br/>Buy more server slots</button>
@@ -179,10 +176,7 @@ if (isset($_POST["vipqueue"])) {
         </div>
         <div class="col-md-12">
             <br><br>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8751501047173409" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8751501047173409" data-ad-slot="8886130990" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            <br><br>
+            
         </div>
     </div>
     <!-- Modals for shop -->
