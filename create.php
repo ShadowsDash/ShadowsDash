@@ -2,7 +2,6 @@
 require("require/page.php");
 
 $userdb = mysqli_query($cpconn, "SELECT * FROM users where discord_id = '". $_SESSION["user"]->id. "'")->fetch_object();
-$isDonator = $cpconn->query("SELECT * FROM private_node WHERE uid = '$userdb->discord_id'")->num_rows;
 
 ?>
 <!-- Header -->
