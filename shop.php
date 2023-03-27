@@ -91,33 +91,6 @@ if (isset($_POST["serverslots"])) {
     echo '<script>window.location.replace("/");</script>';
     die();
 }
-// HIBERNATE BYPASS
-if (isset($_POST["hibernatebypass"])) {
-    $pid = $_POST["serverid"];
-    if (empty($pid)) {
-        die("Empty server id.");
-    }
-    $price = 75;
-    if ($userdb->coins < $price) {
-        $_SESSION["error"] = "You do not have enough coins!";
-        echo '<script>window.location.replace("/");</script>';
-        die();
-    }
-    $ch = curl_init($_CONFIG["ptero_url"] . "/api/application/servers/" . $pid);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        "Authorization: Bearer " . $_CONFIG["ptero_apikey"],
-        "Content-Type: application/json",
-        "Accept: Application/vnd.pterodactyl.v1+json"
-    ));
-    $result = json_decode(curl_exec($ch));
-    mysqli_query($cpconn, "INSERT INTO `hibernate_whitelist` (`id`, `uid`) VALUES (NULL, '"  . $result->attributes->uuid . "') ");
-    mysqli_query($cpconn, "UPDATE `users` SET `coins` = '" . ($userdb->coins - $price) . "' WHERE `users`.`discord_id` = " . $_SESSION["user"]->id);
-    $_SESSION["success"] = "Hibernate should now be disabled on that server. Remove 'hibernate.jar' from the plugins folder and restart your server!";
-    logClient("<@" . $_SESSION["user"]->id . "> bought **1 hibernate bypass**!");
-    echo '<script>window.location.replace("/");</script>';
-    die();
-}
 // VIPQUEUE
 if (isset($_POST["vipqueue"])) {
     $id = $_POST["serverid"];
@@ -169,7 +142,6 @@ if (isset($_POST["vipqueue"])) {
         </div>
                     <p>Account related</p>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#serverSlotsModal" style="margin-bottom: 10px; margin-right: 10px;"><img src="https://i.imgur.com/3w5wt0k.png" width="64"><br/><br/>Buy more server slots</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#hibernatePassModal" style="margin-bottom: 10px; margin-right: 10px;"><img src="https://i.imgur.com/K6S8u5h.png" width="64"><br/><br/>Buy 1 hibernation bypass</button>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#vipPassModal" style="margin-bottom: 10px; margin-right: 10px;"><img src="https://i.imgur.com/cIgYy4G.png" width="64"><br/><br/>Buy 1 VIP queue pass</button>
                 </div>
             </div>
@@ -318,65 +290,6 @@ if (isset($_POST["vipqueue"])) {
                     <div class="modal-footer">
                         <button type="submit" name="serverslots" class="btn btn-primary">Buy</button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!--
-        HIBERNATE PASS
-    -->
-    <div class="modal fade" id="hibernatePassModal" tabindex="-1" role="dialog" aria-labelledby="hibernatePassModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="hibernatePassModalLabel">Buy one server hibernation pass</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST">
-                    <p>Select a server to remove the hibernation mode from it. Once bought, this will be applied on the next server reboot.
-                        <br/>
-                        <p>Cost: <b>75 coins <small style="font-size: 10px;">&nbsp;/server</small></b></p>
-                    </p>
-                    <select class="form-control" name="serverid">
-                        <?php
-                        $servers = mysqli_query($cpconn, "SELECT * FROM servers WHERE uid = '" . mysqli_real_escape_string($cpconn, $_SESSION["user"]->id) . "'");
-                        if ($servers->num_rows == 0) {
-                            echo '<option disabled selected>🛑 You have no servers!</option>';
-                        }
-                        foreach ($servers as $server) {
-                            // GET SERVER INFO
-                            $location = mysqli_query($cpconn, "SELECT * FROM locations WHERE `locations`.`id`='" . $server["location"] . "'")->fetch_array();
-                            $ch = curl_init($_CONFIG["ptero_url"] . "/api/application/servers/" . $server["pid"]);
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                                "Authorization: Bearer " . $_CONFIG["ptero_apikey"],
-                                "Content-Type: application/json",
-                                "Accept: Application/vnd.pterodactyl.v1+json"
-                            ));
-                            $result = json_decode(curl_exec($ch),true);
-                            $hibwhitelist = file_get_contents("https://" . $_SERVER["SERVER_NAME"] . "/api/user/hibwhitelist?serverid=" . $result["attributes"]["uuid"]);
-                            if ($hibwhitelist == 0) {
-                                echo '<option value="' . $server["pid"] . '">' . $result["attributes"]["name"] . ' - ' . $location["name"] . '</option>';
-                            } else {
-                                echo '<option disabled>🛑 Hibernate is already disabled! - ' . $result["attributes"]["name"] . ' - ' . $location["name"] . '</option>';
-                            }
-                        }
-                        ?>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <?php
-                    if ($servers->num_rows == 0) {
-                        echo '<button type="button" class="btn btn-danger">You have no servers!</button>';
-                    } else {
-                        echo '<button type="submit" name="hibernatebypass" class="btn btn-primary">Buy</button>';
-                    }
-                    ?>
-                </div>
                 </form>
             </div>
         </div>

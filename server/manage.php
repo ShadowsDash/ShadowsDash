@@ -1,6 +1,5 @@
 <?php
 require("../require/page.php");
-$user = $_SESSION['user'];
 $serverid = $_GET["id"];
 
 if (!is_numeric($serverid)) {

@@ -8,7 +8,6 @@ if (!isset($_SESSION['loggedin'])) {
     header("location: /login");
     die();
 }
-$user = $_SESSION['user'];
 if (!is_numeric($_GET["server"])) {
     $_SESSION['error'] = "Server id is invalid.";
     header("location: /");

@@ -93,25 +93,19 @@ foreach($queue as $server) {
             'BUNGEE_VERSION' => "latest",
             'SERVER_JARFILE' => "server.jar",
             'BUILD_NUMBER' => "latest",
-            // FORGE
             'MC_VERSION' => 'latest',
             'BUILD_TYPE' => 'recommended',
-            // SPONGE
             'SPONGE_VERSION' => '1.12.2-7.3.0',
-            // VANILLA
             'VANILLA_VERSION' => 'latest',
             'NUKKIT_VERSION' => 'latest',
             'VERSION' => 'pm4',
-            // PURPUR
             'MINECRAFT_VERSION' => 'latest',
-            // BEDROCK
             'BEDROCK_VERSION' => 'latest',
             'LD_LIBRARY_PATH' => '.',
             'GAMEMODE' => 'survival',
             'CHEATS' => 'false',
             'DIFFICULTY' => 'easy',
             'SERVERNAME' => 'My Bedrock Server',
-            //nukkit
             'NUKKIT_VERSION' => 'latest',
             'PMMP_VERSION' => 'latest',
             'USER_UPLOAD' => 0,
@@ -122,11 +116,14 @@ foreach($queue as $server) {
             'FILE_TRANSFER' => '30033',
             'MAX_USERS' => 100,
             'MUMBLE_VERSION' => 'latest',
-            // PYTHON
             'REQUIREMENTS_FILE' => 'requirements.txt',
-            // GO
+            'PY_FILE' => 'app.py',
             'GO_PACKAGE' => 'changeme',
             'EXECUTABLE' => 'changeme',
+            'LUA_FILE' => 'app.lua',
+            'LIT_PACKAGES' => '',
+            'JS_FILE' => 'index.js',
+            'JARFILE' => 'app.jar',  
         ),
         'limits' => array(
             'memory' => $server['ram'],

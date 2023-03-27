@@ -38,7 +38,6 @@ $ptero = json_decode($result1, true);
 echo json_encode(
     array(
         "db" => $result,
-        "ptero" => $ptero['attributes'],
-        "hibernate"=>(file_get_contents("https://my.optikservers.com/api/user/hibwhitelist?serverid=".$ptero['attributes']["uuid"]) == '1') ? true : false,
+        "ptero" => $ptero['attributes']
         )
     );

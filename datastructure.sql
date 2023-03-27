@@ -24,46 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `boosters`
---
-
-CREATE TABLE `boosters` (
-  `id` int(11) NOT NULL,
-  `uid` varchar(20) NOT NULL,
-  `lastcheck` bigint(20) NOT NULL DEFAULT '1624711478'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `coupons`
---
-
-CREATE TABLE `coupons` (
-  `id` int(11) NOT NULL,
-  `code` text NOT NULL,
-  `discount` decimal(65,0) DEFAULT NULL,
-  `percentage_discount` decimal(65,0) DEFAULT NULL,
-  `uid` text,
-  `uses` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `domains`
---
-
-CREATE TABLE `domains` (
-  `id` int(11) NOT NULL,
-  `zoneid` varchar(255) NOT NULL,
-  `name` text NOT NULL,
-  `slots` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `eggs`
 --
 
@@ -196,21 +156,6 @@ CREATE TABLE `servers_queue` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `subdomains`
---
-
-CREATE TABLE `subdomains` (
-  `id` int(11) NOT NULL,
-  `subdomain` text NOT NULL,
-  `domain` int(10) NOT NULL,
-  `recordid` text NOT NULL,
-  `user` varchar(20) NOT NULL,
-  `server` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `users`
 --
 
@@ -235,37 +180,15 @@ CREATE TABLE `users` (
   `lastlogin_ip` text NOT NULL,
   `created_at` int(255) NOT NULL,
   `last_login` text NOT NULL,
-  `locale` varchar(50) NOT NULL,
   `banned` tinyint(4) NOT NULL DEFAULT '0',
   `banned_reason` longtext,
   `staff` tinyint(4) NOT NULL DEFAULT '0',
-  `spa_perm_level` tinyint(4) NOT NULL DEFAULT '0',
-  `spa` tinyint(4) NOT NULL DEFAULT '0',
-  `mce_limit` int(255) NOT NULL DEFAULT '0',
   `registered` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `boosters`
---
-ALTER TABLE `boosters`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `coupons`
---
-ALTER TABLE `coupons`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `domains`
---
-ALTER TABLE `domains`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `eggs`
@@ -322,12 +245,6 @@ ALTER TABLE `servers_queue`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `subdomains`
---
-ALTER TABLE `subdomains`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -336,19 +253,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
-
---
--- AUTO_INCREMENT pour la table `boosters`
---
-ALTER TABLE `boosters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `domains`
---
-ALTER TABLE `domains`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT pour la table `eggs`
 --
@@ -403,13 +307,6 @@ ALTER TABLE `servers`
 ALTER TABLE `servers_queue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT pour la table `subdomains`
---
-ALTER TABLE `subdomains`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`

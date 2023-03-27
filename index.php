@@ -468,16 +468,6 @@ foreach($servers_in_queue as $server) {
                                             echo '<span class="badge badge-dot mr-4"><i class="bg-warning"></i><span class="status">Suspended</span></span>';
                                         } else {
                                             echo '<span class="badge badge-dot mr-4"><i class="bg-success"></i><span class="status">Installed</span></span>';
-                                            $hibernating = file_get_contents($_CONFIG["proto"] . $_SERVER["SERVER_NAME"] . "/api/user/hibwhitelist?serverid=" . $server['uuid']);
-                                            if ($egg["hibernation"] == 1) {
-                                                if ($hibernating != 1) {
-                                                    echo '<img src="https://i.imgur.com/K6S8u5h.png" width="27" /> Hibernation enabled <button type="button" class="btn btn-primary btn-sm" data-container="body" data-toggle="popover" data-placement="top" data-content="The hibernation system is really simple, when no players are online, your server will unload chunks and plugins to reduce CPU usage. You can remove this limitation by purchasing a bypass, to use plugins like Dynmap or other plugins that require to run when no players are online.">?</button>';
-                                                } else {
-                                                    echo '<img src="https://i.imgur.com/uMeSsAo.png" width="27" /> Hibernation disabled';
-                                                }
-                                            } else {
-                                                echo '<img src="https://i.imgur.com/uMeSsAo.png" width="27" /> No hibernation for this egg';
-                                            }
                                         }
                                         ?>
                                     </td>
