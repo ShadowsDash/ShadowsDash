@@ -1,3 +1,4 @@
+# Shadow's Dash is discontinued. There is a full rework in the making, but not sure if it will be free/open source.
 <p align="center"><img src="https://i.imgur.com/sKZJ5tV.png" width=60% /></p>
 <p align="center">A fully customizable shared-resources based dashboard for pterodactyl hosting services</p>
 <p align="center"><img src="https://discord.com/api/guilds/854046209399455744/widget.png?style=shield" />
