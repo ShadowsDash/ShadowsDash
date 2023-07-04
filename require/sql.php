@@ -1,8 +1,7 @@
 <?php
 include_once("config.php");
 
-$cpconn = new mysqli($_CONFIG["db_host"], $_CONFIG["db_username"], $_CONFIG["db_password"], $_CONFIG["db_name"] );
-
+$cpconn = new mysqli($_CONFIG["db_host"].':'.$_CONFIG["db_port"], $_CONFIG["db_username"], $_CONFIG["db_password"], $_CONFIG["db_name"] );
 
 //
 // Some functions
@@ -21,20 +20,4 @@ function getclientip() {
     else { $ip = $remote; }
 
     return $ip;
-}
-
-function sendLog($channel, $message) {
-    $url = "changeme";
-    
-    $headers = [ 'Content-Type: application/json; charset=utf-8' ];
-    $POST = ['content' => $message ];
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($POST));
-    $response   = curl_exec($ch);
 }
