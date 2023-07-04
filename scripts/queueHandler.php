@@ -127,6 +127,13 @@ foreach($queue as $server) {
             // GO
             'GO_PACKAGE' => 'changeme',
             'EXECUTABLE' => 'changeme',
+            //LUA
+            'LUA_FILE' => 'app.lua',
+            'LIT_PACKAGES' => '',
+            //JS
+            'JS_FILE' => 'index.js',
+            //JAVA
+            'JARFILE' => 'app.jar'  
         ),
         'limits' => array(
             'memory' => $server['ram'],

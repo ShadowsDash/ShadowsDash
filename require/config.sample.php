@@ -57,6 +57,7 @@ $_CONFIG["ptero_apikey"] = ""; // [!] Must be an application api key with all ri
 // >> DATABASE AND API KEYS RELATED STUFF, CONFIDENTIAL
 //
 $_CONFIG["db_host"] = "";
+$_CONFIG["db_port"] = "3306";
 $_CONFIG["db_name"] = "";
 $_CONFIG["db_username"] = "";
 $_CONFIG["db_password"] = "";

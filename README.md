@@ -1,4 +1,4 @@
-# Shadow's Dash is discontinued. There is a full rework in the making, but not sure if it will be free/open source.
+# Shadow's Dash is EOL. There is a full rework in the development, but not sure if it will be free/open source.
 <p align="center"><img src="https://i.imgur.com/sKZJ5tV.png" width=60% /></p>
 <p align="center">A fully customizable shared-resources based dashboard for pterodactyl hosting services</p>
 <p align="center"><img src="https://discord.com/api/guilds/854046209399455744/widget.png?style=shield" />
@@ -8,6 +8,10 @@ Shadow's Dash should be operational as the state as it is, but **no support will
 It is required to have at least some PHP knowledge and webserver configuration knowledge. I won't provide anything.
 
 <p align="center"><a href="https://shadowsdash.gitbook.io/docs/"><img src="https://i.imgur.com/IJnJnTA.png" width=20%></a></p>
+
+
+# WARNING
+Because ShadowsDash is EOL MythicalSystems and AtoroTech decided to continue the project and provide support for it and add many new features / security updates / new themes to it so make sure to [check it out here](https://github.com/MythicalLTD/MythicalDash)
 
 # 🗃️ Base features
 Theses features are the basic ones. In the future, more features are likely to come.
@@ -40,10 +44,9 @@ I'm open to all contributions! Feel free to help! :)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I87ZFES)
 
 # Shoutouts
-Big shoutout to MythicalKitten, Bartosz1, BlackKitten, Daftscientist, Emerald Mike, honk, RobusOfficial, tlkh40 and Will for their cool support.
+Big shoutout to MythicalKitten, Bartosz1, BlackKitten, Daftscientist, Emerald Mike, honk, RobusOfficial, tlkh40, NaysKutzu and Will for their cool support.
 Shoutout to JOSH for some parts of his code.
 
-
-Oh ! And i'm also looking for paid work. If you like what I do, make sure to visit https://xshadow.me and send me an email. I would love to work with you !
+Oh ! And i'm also looking for paid work. If you like what I do, make sure to visit https://xshadow.xyz and send me an email. I would love to work with you !
 
 Take a free baguette 🥖

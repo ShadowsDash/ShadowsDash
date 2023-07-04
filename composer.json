@@ -1,8 +1,0 @@
-{
-    "require": {
-        "stripe/stripe-php": "^7.104",
-        "league/omnipay": "^3.2",
-        "omnipay/paypal": "^3.0",
-        "phpseclib/phpseclib": "^3.0"
-    }
-}

@@ -68,12 +68,7 @@ if (isset($_GET['code'])) {
 if (isset($_SESSION['access_token'])) {
     $ipaddr = getclientip();
     $user = apiRequest($apiURLBase);
-    // if ($user->id != 638672769009319956 && $user->id != 316818056049590282 && $user->id != 259875936852246528) {
-    //     $_SESSION['error'] = "Not released yet!";
-    //     header("location: /auth/login");
-    //     die();
-    // }
-    $username = $user->username . "#" . $user->discriminator;
+    $username = $user->username;
     $avatar = "https://cdn.discordapp.com/avatars/" . "$user->id" . '/' . "$user->avatar" . ".png";;
     if (empty($user->avatar)) {
         $avatar = "https://support.discord.com/hc/user_images/l12c7vKVRCd-XLIdDkLUDg.png";
@@ -321,7 +316,7 @@ if (isset($_SESSION['access_token'])) {
 
         foreach ($jfrclaimed as $cjfr) {
             if (!in_array($cjfr["serverid"], $checked)) {
-    //             // REMOVE QC (USER LEFT JFR)
+               // REMOVE QC (USER LEFT JFR)
                 $userdb = $cpconn->query("SELECT * FROM users WHERE discord_id = '" . mysqli_real_escape_string($cpconn, $user->id) . "'")->fetch_all(MYSQLI_ASSOC);
                 $curjfr = $cpconn->query("SELECT * FROM j4r WHERE serverid = '" . mysqli_real_escape_string($cpconn, $cjfr["serverid"]) . "'")->fetch_all(MYSQLI_ASSOC);
                 $currentcoins = $userdb[0]["coins"];
